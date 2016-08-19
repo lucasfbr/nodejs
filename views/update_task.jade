@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div(class="container")
+    div(class="row")
+      div(class="col-xs-6 col-xs-offset-3")
+        form(method="POST", action="/tasks/update/#{task.id}" class="formTasks")
+          h1(class="text-center") Editar Tarefa
+          div(class="form-group")
+            label(for="task") Tarefa
+            input(type="text", name="task" class="input-lg form-control", value="#{task.task}")
+          div(class="form-group")
+            label(for="done") Feita
+            select(class="input-lg form-control" name="done")
+              if task.done
+                option(selected, value="true") Sim
+                option(value="false") Nao
+              else
+                option(selected, value="false") Nao
+                option(value="true") Sim
+
+          input(type="hidden", name="_method", value="PUT")
+          input(type="submit", class="btn btn-primary")

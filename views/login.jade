@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  div(class="container")
+    div(class="row")
+      div(class="col-xs-6 col-xs-offset-3")
+        form(class="form-signin", method="POST", action="/users/auth")
+          h1(class="form-signin-heading text-center") Login
+          label(class="sr-only", for="username") Usuario
+          input(class="input-lg", type="text", name="username" class="form-control", placeholder="Usuario")
+          label(class="sr-only", for="password") Senha
+          input(class="input-lg", type="password", name="password" class="form-control", placeholder="Senha")
+          br
+          input(type="submit", class="btn btn-lg btn-primary btn-block")

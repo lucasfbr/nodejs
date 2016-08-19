@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  div(class="container")
+    div(class="row")
+      div(class="col-xs-6 col-xs-offset-3")
+        form(method="POST", action="/tasks/create" class="formTasks")
+          h1(class="text-center") Nova Tarefa
+          div(class="form-group")
+            label(for="task") Tarefa
+            input(type="text", name="task" class="input-lg form-control", placeholder="Crie uma tarefa")
+          div(class="form-group")
+            label(for="done") Concluída?
+            select(class="form-control input-lg" name="done")
+              option(value="false") Nao
+              option(value="true") Sim
+          input(type="submit", class="btn btn-lg btn-primary btn-block")

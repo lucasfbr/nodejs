@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  div(class="container containerTasks")
+    div(class="row")
+      div(class="col-xs-12")
+
+        h3(class="alert alert-success text-center")=titulo
+
+        a(href="/tasks/create", class="btn btn-success") Nova Tarefa
+
+        table(class="table table-striped ")
+          thead
+            tr
+              th Nome
+              th Feito
+              th Ação
+          tbody
+            each task in tasks
+              tr
+                td=task.task
+                td=task.done
+                td(class="acoesTasks")
+                  form(method="GET", action="/tasks/update/" + task.id, class="formT")
+                    input(type="submit", class="btn btn-primary", value="Update")
+                  form(method="POST", action="/tasks/delete/" + task.id, class="formT")
+                    input(type="hidden", name="_method", value="DELETE")
+                    input(type="submit", class="btn btn-danger", value="Delete")
+
